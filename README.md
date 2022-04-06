@@ -11,6 +11,6 @@ MY_SECRET = 'secret'
 
 
 .gitignore
-<!-- #dotenv environment variables file -->
+//dotenv environment variables file//
 .env
 
