@@ -3,10 +3,10 @@ const config = require("../config/development_config");
 const mysqlt = require("mysql");
 
 const connection = mysqlt.createConnection({
-  host: config.mysql.host,
-  user: config.mysql.user,
-  password: config.mysql.password,
-  database: config.mysql.database,
+  host: "us-cdbr-east-05.cleardb.net",
+  user: "b59b8100817979",
+  password: "9c40d97c",
+  database: "heroku_bbe22ab4e643033",
 });
 
 connection.connect((err) => {
