@@ -1,15 +1,12 @@
 const toRegister = require("../models/register_model");
-const encryption = require("../models/encryption");
 const loginAction = require("../models/login_model");
 const updateAction = require("../models/update_model");
 const verify = require("../models/verification_model");
 const jwt = require("jsonwebtoken");
 const config = require("../config/development_config");
-const check = require("../service/member_check");
+
 module.exports = class Member {
   postRegister(req, res, next) {
-    // 進行加密
-    const password = encryption(req.body.password);
     // 獲取client端資料
     const memberData = {
       name: req.body.name,
