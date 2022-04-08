@@ -4,7 +4,7 @@ module.exports = function register(memberData) {
   let result = {};
   return new Promise((resolve, reject) => {
     // 尋找是否有重複的email
-    db.query(
+    db(
       "SELECT email FROM member_info WHERE email = ?",
       memberData.email,
       function (err, rows) {

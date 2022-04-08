@@ -3,7 +3,7 @@ const db = require("./connection_db");
 module.exports = function customerEdit(id, memberUpdateData) {
   let result = {};
   return new Promise((resolve, reject) => {
-    db.query(
+    db(
       "UPDATE member_info SET ? WHERE id = ?",
       [memberUpdateData, id],
       function (err, rows) {

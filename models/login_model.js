@@ -2,10 +2,10 @@ const db = require("./connection_db");
 
 module.exports = function memberLogin(memberData) {
   let result = {};
-  console.log(memberData.email, "---test---", memberData.password);
   return new Promise((resolve, reject) => {
     // 找尋
-    db.query(
+
+    db(
       "SELECT * FROM member_info WHERE email = ? AND password = ?",
       [memberData.email, memberData.password],
       function (err, rows) {
