@@ -35,7 +35,7 @@ module.exports = class Member {
   postLogin(req, res, next) {
     loginAction(req.body).then((rows) => {
       console.log("test:", rows);
-      const checkNull = !rows;
+      const checkNull = rows.length === 0;
       console.log(checkNull, "---");
       if (checkNull === true) {
         res.json({

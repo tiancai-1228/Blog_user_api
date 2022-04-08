@@ -4,7 +4,7 @@ module.exports = function memberLogin(memberData) {
   let result = {};
   return new Promise((resolve, reject) => {
     // 找尋
-
+    console.log([memberData.email, memberData.password]);
     db(
       "SELECT * FROM member_info WHERE email = ? AND password = ?",
       [memberData.email, memberData.password],
