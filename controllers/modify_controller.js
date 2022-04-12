@@ -57,8 +57,10 @@ module.exports = class Member {
         res.setHeader("token", token);
         res.json({
           result: {
-            status: "登入成功。",
-            loginMember: "歡迎 " + rows[0].name + " 的登入！",
+            status: "success",
+            pk: rows[0].id,
+            user: rows[0].name,
+            email: rows[0].email,
             accessToken: token,
           },
         });
