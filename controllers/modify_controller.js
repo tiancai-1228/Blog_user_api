@@ -40,7 +40,7 @@ module.exports = class Member {
       if (checkNull === true) {
         res.json({
           result: {
-            status: "登入失敗。",
+            status: "false",
             err: "請輸入正確的帳號或密碼。",
           },
         });
