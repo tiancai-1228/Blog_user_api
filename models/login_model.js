@@ -10,7 +10,7 @@ module.exports = function memberLogin(memberData) {
       [memberData.email, memberData.password],
       function (err, rows) {
         if (err) {
-          result.status = "登入失敗。";
+          result.status = "false";
           result.err = "伺服器錯誤，請稍後在試！";
           reject(result);
           return;

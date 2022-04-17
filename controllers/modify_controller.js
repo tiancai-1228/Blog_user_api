@@ -1,5 +1,6 @@
 const toRegister = require("../models/register_model");
 const loginAction = require("../models/login_model");
+const checkAction = require("../models/checkUser_module");
 const updateAction = require("../models/update_model");
 const verify = require("../models/verification_model");
 const jwt = require("jsonwebtoken");
@@ -34,9 +35,7 @@ module.exports = class Member {
 
   postLogin(req, res, next) {
     loginAction(req.body).then((rows) => {
-      console.log("test:", rows);
       const checkNull = rows.length === 0;
-      console.log(checkNull, "---");
       if (checkNull === true) {
         res.json({
           result: {
@@ -106,6 +105,64 @@ module.exports = class Member {
               });
             }
           );
+        }
+      });
+    }
+  }
+
+  postCheck(req, res, next) {
+    const token = req.headers["token"];
+    //確定token是否有輸入
+    const checkNull = !token;
+    console.log(checkNull);
+    if (checkNull === true) {
+      res.json({
+        err: "請輸入token！",
+      });
+    } else if (checkNull === false) {
+      verify(token).then((tokenResult) => {
+        if (tokenResult === false) {
+          res.json({
+            result: {
+              status: "token錯誤。",
+              err: "請重新登入。",
+            },
+          });
+        } else {
+          const id = tokenResult;
+          // const memberUpdateData = {
+          //   name: req.body.name,
+          //   password: req.body.password,
+          //   update_date: onTime(),
+          // };
+
+          // res.json({
+          //   result: {
+          //     pk: rows[0].id,
+          //     user: rows[0].name,
+          //     email: rows[0].email,
+          //   },
+          // });
+          checkAction(id).then((rows) => {
+            const checkNull = rows.length === 0;
+            if (checkNull === true) {
+              res.json({
+                result: {
+                  status: "false",
+                  err: "error",
+                },
+              });
+            } else if (checkNull === false) {
+              res.json({
+                result: {
+                  pk: rows[0].id,
+                  user: rows[0].name,
+                  email: rows[0].email,
+                  accessToken: token,
+                },
+              });
+            }
+          });
         }
       });
     }

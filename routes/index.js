@@ -9,6 +9,8 @@ router.post("/register", memberModifyMethod.postRegister);
 
 router.post("/login", memberModifyMethod.postLogin);
 
+router.post("/check", memberModifyMethod.postCheck);
+
 router.put("/update", memberModifyMethod.putUpdate);
 
 module.exports = router;
