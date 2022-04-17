@@ -1,18 +1,18 @@
 # node
 
-.env
+{post}login : https://robby-user.herokuapp.com/login  
+ name,
+password,
+email,
 
-HOST = 'us-cdbr-east-05.cleardb.net'
-DATABASE_USER = 'b59b8100817979'
-DATABASE_PASSWORD = '9c40d97c'
-DATABASE = 'heroku_bbe22ab4e643033'
-MY_SECRET = 'secret'
+{post}sigin : https://robby-user.herokuapp.com/register
 
+name,
+password,
+email,
 
+{put}update : https://robby-user.herokuapp.com/update
 
-.gitignore
-
-//dotenv environment variables file//
-
-.env
-
+name,
+password,
+email,
