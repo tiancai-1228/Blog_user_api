@@ -6,11 +6,13 @@ password,
 email,
 
 {post}sigin : https://robby-user.herokuapp.com/register
+
 name,
 password,
 email,
 
-{put}sigin : https://robby-user.herokuapp.com/update
+{put}update : https://robby-user.herokuapp.com/update
+
 name,
 password,
 email,
