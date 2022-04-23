@@ -117,6 +117,7 @@ module.exports = class Member {
     console.log(checkNull);
     if (checkNull === true) {
       res.json({
+        status: "false",
         err: "請輸入token！",
       });
     } else if (checkNull === false) {
