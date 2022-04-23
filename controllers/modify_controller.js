@@ -111,7 +111,7 @@ module.exports = class Member {
   }
 
   postCheck(req, res, next) {
-    const token = req.headers["Authorization"];
+    const token = req.headers["authorization"];
     //確定token是否有輸入
     const checkNull = !token;
     console.log(checkNull);
