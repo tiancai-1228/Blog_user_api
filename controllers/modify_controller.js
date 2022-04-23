@@ -111,7 +111,7 @@ module.exports = class Member {
   }
 
   postCheck(req, res, next) {
-    const token = req.headers["token"];
+    const token = req.headers["Authorization"];
     //確定token是否有輸入
     const checkNull = !token;
     console.log(checkNull);
@@ -124,25 +124,12 @@ module.exports = class Member {
         if (tokenResult === false) {
           res.json({
             result: {
-              status: "token錯誤。",
+              status: "false",
               err: "請重新登入。",
             },
           });
         } else {
           const id = tokenResult;
-          // const memberUpdateData = {
-          //   name: req.body.name,
-          //   password: req.body.password,
-          //   update_date: onTime(),
-          // };
-
-          // res.json({
-          //   result: {
-          //     pk: rows[0].id,
-          //     user: rows[0].name,
-          //     email: rows[0].email,
-          //   },
-          // });
           checkAction(id).then((rows) => {
             const checkNull = rows.length === 0;
             if (checkNull === true) {
@@ -155,10 +142,10 @@ module.exports = class Member {
             } else if (checkNull === false) {
               res.json({
                 result: {
+                  status: "success",
                   pk: rows[0].id,
                   user: rows[0].name,
                   email: rows[0].email,
-                  accessToken: token,
                 },
               });
             }
