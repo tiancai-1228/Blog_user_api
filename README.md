@@ -18,7 +18,7 @@ Content-Type
 query:{
 }
 
-{post}sigin : https://robby-user.herokuapp.com/register
+{post}sigup : https://robby-user.herokuapp.com/register
 header:{
 Content-Type
 }
