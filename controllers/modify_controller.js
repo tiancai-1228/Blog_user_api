@@ -20,7 +20,7 @@ module.exports = class Member {
       (result) => {
         // 若寫入成功則回傳
         res.json({
-          status: "註冊成功。",
+          status: "success",
           result: result,
         });
       },
